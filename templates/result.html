@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+<link rel="shortcut icon" type="image/jpg" href = "https://image.flaticon.com/icons/png/512/3004/3004458.png">
+
+
+<style>
+body,h1 {
+    font-family: "Work Sans"; 
+    color: white; 
+    text-align: center; 
+    vertical-align: middle; 
+    font-weight: bold;
+}
+
+h2 {
+  font-family: "Work Sans"; 
+  color: white; 
+  text-align: center; 
+  vertical-align: middle; 
+  font-weight: bold;
+
+}
+
+body, html {height: 100%; background-color: #101010; overflow-y: hidden;}
+
+p {font-family: "Work Sans"; padding-top: 4%; font-size: 70px; margin-bottom: 2%;}
+
+input {
+    size: 100px; 
+    font-family: 'Open Sans';
+}
+
+.header {
+    padding-top: 0.5%;
+    font-weight: normal;
+}
+
+.x {
+    font-family: 'Work Sans';
+}
+
+.footer {
+    padding-top: 4.55%; 
+    font-weight: normal;
+}
+
+a {
+  color: white; 
+  text-decoration:none;
+}
+
+a:hover {
+  transition: 1s;
+  
+}
+
+.link:hover {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #a9a9a9;
+  transition: 1s;
+}
+
+.subtype {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: 110%;
+  line-height: 1em;
+}
+
+.ftld {
+  line-height: 1em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.alz {
+  margin-top: 1.8em;
+}
+
+</style>
+
+<!---flask--->
+
+<title>Denotia WebApp</title>
+
+<body>
+  
+<h3 class = header><a href = "{{ url_for ('faq') }}" class = link>Frequently Asked Questions</a> | <a href = "{{ url_for ('about') }}" class = link>About Us</a></h3>
+<form enctype="multipart/form-data" class="form-signin" method=post enctype=multipart/form-data>
+<p> Scan Results </p>
+<hr width="50%"> <br>
+
+    {% if name == "normal"%}
+    <h2 class = ftld> Frontotemporal dementia: Negative </h2>  
+    <h2 class = subtype> Behavior variant FTD: Negative </h2>
+    <h2 class = subtype> Semantic variant FTD: Negative </h2>
+    <h2 class = subtype> Progressive nonfluent aphasia (PNFA): Negative </h2>
+    <h2 class = alz> Alzheimer's disease: Negative </h2>
+    
+    {% elif name == "ftld"%}
+    <h2 class = ftld> Frontotemporal dementia: Positive </h2>  
+    <h2 class = subtype> Behavior variant FTD: Negative </h2>
+    <h2 class = subtype> Semantic variant FTD: Positive </h2>
+    <h2 class = subtype> Progressive nonfluent aphasia (PNFA): Negative </h2>
+    <h2 class = alz> Alzheimer's disease: Negative </h2>
+    <br>
+    <a href = "{{ url_for ('index') }}"><input type = button value = 'Go Back'></a>
+    
+    {% endif %}
+
+<h3 class = footer> Powered by Pytorch, Flask, and Bootstrap </h3>
+
+</body>
+</html>
